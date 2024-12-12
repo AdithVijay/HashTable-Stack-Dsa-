@@ -12,7 +12,7 @@ class Queue{
     }
 
     enqueue(data) {
-        const newNode = new Node(data);
+        const newNode = new Node(data)
         if(this.head==null){
             this.head =newNode
             this.rear = newNode
