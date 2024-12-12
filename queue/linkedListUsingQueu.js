@@ -37,6 +37,10 @@ class Queue{
         this.size--
         return dequedata
     }
+
+    peek(){
+        return this.head.data
+    }
     print(){
         let current = this.head
         let arr=[]
@@ -55,4 +59,5 @@ queue.enqueue(1)
 queue.enqueue(2)
 queue.deque()
 queue.print()
-console.log(queue);
+console.log("hummm",queue.peek())
+console.log(queue)
