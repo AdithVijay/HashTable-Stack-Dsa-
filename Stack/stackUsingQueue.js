@@ -40,4 +40,4 @@ stackqueue.push(1);
 stackqueue.push(2)
 stackqueue.push(3)
 
-stackqueue.print(); 
+stackqueue.print();
