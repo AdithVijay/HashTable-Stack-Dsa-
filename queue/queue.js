@@ -1,21 +1,43 @@
-class Queue {
+class Stack {
     constructor() {
-        this.items=[]
+        this.items = []
+        this.size = 0
+        this.maxsize = 5
     }
-
-    enqueue(data){
+    pushTo(data){
+        if(this.size==this.maxsize){
+            console.log("kamman nikk");
+            return
+        }
         this.items.push(data)
+        this.size++
     }
-    dequeuse(){
-        this.items.shift()
+    Pop(){
+        if(this.isempty()){
+            console.log("imm");
+            return
+        }
+        this.size--
+        return this.items.pop()
     }
+    isempty(){
+        return this.size == 0
+    }
+    
+}
+function reverseString(data) {
+    let rever = ""
+    const stack = new Stack()
+    for(i=0;i<data.length;i++){
+        stack.pushTo(data[i])
+    }
+    while(!stack.isempty()){
+        rever += stack.Pop()
+    }
+    return rever
 }
 
-const queue = new Queue()
+const input = "aslam"
+const reverse = reverseString(input)
+console.log(reverse);
 
-
-
-queue.enqueue(0)
-queue.enqueue(1)
-queue.enqueue(2)
-console.log(queue)
