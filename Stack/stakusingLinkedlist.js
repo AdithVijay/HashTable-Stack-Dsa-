@@ -28,6 +28,7 @@ class  Stack{
         console.log(arr.join("=>"),"null")
     }
 }
+
 const stack = new Stack()
 stack.push(3)
 stack.push(2)
