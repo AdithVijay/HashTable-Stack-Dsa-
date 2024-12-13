@@ -20,17 +20,14 @@ class Stack {
        return this.items.length==0
     }
 
-    sort(){
-        for(let i=0;i<this.items.length;i++){
-            for(let j=i+1;j<this.items.length;j++){
-                if(this.items[i]>this.items[j]){
-                    let temp = this.items[i]
-                    this.items[i] = this.items[j]
-                    this.items[j] = temp
-                }
+    unique(){
+        let uniqueel = []
+        for(let item of this.items ){
+            if(!uniqueel.includes(item)){
+                uniqueel.push(item)
             }
         }
-        return this.items
+        console.log(uniqueel);
         
     }
 }
@@ -41,5 +38,4 @@ class Stack {
     stack.push(1)
     stack.push(1)
     stack.push(2)
-
-    console.log(stack.sort())
+    stack.unique()
