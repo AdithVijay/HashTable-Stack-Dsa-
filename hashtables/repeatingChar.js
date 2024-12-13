@@ -73,8 +73,8 @@ function findMostRepeatingChar(str) {
                 }
             }
         }
-    });
-
+    })
+    
     return maxCount
 }
 
