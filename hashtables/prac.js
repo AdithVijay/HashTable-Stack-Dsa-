@@ -71,6 +71,6 @@ hashTable.set("age", 25);
 hashTable.set("city", "Wonderland");
 hashTable.set("name", "Bob"); 
 console.log(hashTable.get("name")); 
-console.log(hashTable.get("city")); 
-hashTable.remove("age");
-hashTable.print();
+console.log(hashTable.get("city"))
+hashTable.remove("age")
+hashTable.print()
