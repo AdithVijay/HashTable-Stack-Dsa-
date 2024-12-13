@@ -15,7 +15,7 @@ class StackUsingQueue {
         console.log("umbikko"); // Queue is empty
         return; 
     }
-    this.q.shift(); 
+    this.q.shift()
 }
 
 
@@ -35,8 +35,8 @@ class StackUsingQueue {
     }
 }
 const stackqueue = new StackUsingQueue()
-stackqueue.push(0);
-stackqueue.push(1);
+stackqueue.push(0)
+stackqueue.push(1)
 stackqueue.push(2)
 stackqueue.push(3)
 
