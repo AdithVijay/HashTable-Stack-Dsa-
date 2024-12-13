@@ -13,9 +13,9 @@ class StackUsingQueue {
     pop() {
     if (this.isempty()) {
         console.log("umbikko"); // Queue is empty
-        return; // Exit the function
+        return; 
     }
-    this.q.shift(); // Remove the front element
+    this.q.shift(); 
 }
 
 
