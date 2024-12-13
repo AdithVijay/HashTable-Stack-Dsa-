@@ -8,7 +8,7 @@ class HashTable {
         for (let char of key) {
             hash += char.charCodeAt(0); 
         }
-        return hash % this.table.length; 
+        return hash % this.table.length
     }
 
     set(key, value) {
@@ -17,7 +17,6 @@ class HashTable {
             this.table[index] = []; 
         }
 
-
         for (let pair of this.table[index]) {
             if (pair[0] === key) {
                 pair[1] = value; 
@@ -25,7 +24,7 @@ class HashTable {
             }
         }
 
-        this.table[index].push([key, value]);
+        this.table[index].push([key, value])
     }
 
     get(key) {

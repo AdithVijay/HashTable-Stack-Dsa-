@@ -41,7 +41,6 @@ newStack.push(1000)
 newStack.pop()
 newStack.pop()
 newStack.pop()
-console.log("this is peek",newStack.peek());
-// newStack.size()
+console.log("this is peek",newStack.peek())
 
 console.log(newStack)
