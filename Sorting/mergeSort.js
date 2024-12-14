@@ -5,6 +5,8 @@ function mergeSort(arr){
         return arr
     }
 
+    
+
     let mid = arr.length/2
     let left =[]
     let right=[]
@@ -14,13 +16,12 @@ function mergeSort(arr){
         left.push(arr[i])
     }
 
-    console.log(k++,"=i",left)
+    console.log(k++,"i",left)
     for(let i=mid;i<arr.length;i++){
         right.push(arr[i])
     }
 
-    
-    console.log(right) 
+    // console.log(right) 
     mergeSort(left)
     mergeSort(right)
 
