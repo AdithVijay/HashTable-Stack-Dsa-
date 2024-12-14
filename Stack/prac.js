@@ -1,45 +1,57 @@
-class Stack {
-    constructor() {
-        this.items = []
-        this.count = 0
-    }
+function merge(left,right,arr){
+    let leftLength = left.length;
+    let rightLength = right.length;
 
-    push(data){
-        this.items.push(data)
-        this.count++
-    }
-    pop(){
-        if(this.isempty()){
-            console.log("podi punde");
-            return
-        }
-        this.count--
-        return this.items.pop()
-    }
-    isempty(){
-       return this.items.length==0
-    }
+    let l = 0;
+    let r =0;
+    let k=0;
 
-    sort(){
-        for(let i=0;i<this.items.length;i++){
-            for(let j=i+1;j<this.items.length;j++){
-                if(this.items[i]>this.items[j]){
-                    let temp = this.items[i]
-                    this.items[i] = this.items[j]
-                    this.items[j] = temp
-                }
-            }
+    while(l<leftLength && r<rightLength){
+        if(left[l]<right[r]){
+            arr[k]= left[l];
+            l++;
+        }else{
+            arr[k] = right[r];
+            r++;
         }
-        return this.items
-        
+        k++;
+    }
+    while(l<leftLength){
+        arr[k] = left[l];
+        k++;
+        l++;
+    }
+    while(r<rightLength){
+        arr[k] = right[r];
+        k++;
+        r++;
     }
 }
 
 
-    const stack = new Stack()    
-    stack.push(10)
-    stack.push(1)
-    stack.push(1)
-    stack.push(2)
+function mergeSort(arr){
+    if(arr.length<2){
+        return arr;
+    }
+    let mid  = Math.floor(arr.length/2);
+   let  left = [];
+   let right = [];
+    let k=0;
 
-    console.log(stack.sort())
+    
+
+    for(let i=0;i<mid;i++){
+        left[i] = arr[i];
+    }
+    for(let j=mid;j<arr.length;j++){
+        right[k] = arr[j];
+        k++;
+    }
+
+    mergeSort(left);
+    mergeSort(right);
+    merge(left,right,arr)
+    return arr;
+}
+
+console.log(mergeSort(arr))
