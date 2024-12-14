@@ -6,20 +6,19 @@ class HashTable {
     hash(key){
         let hash = 0
         for(let char of key){
-            hash+=char.charCodeAt(0)
+            hash+= char.charCodeAt(0)
         }
-        console.log(hash)
-        return hash % this.table.length
+        return hash%this.table.length
     }
 
     set(key,value){
         let index = this.hash(key)
-
         if(!this.table[index]){
             this.table[index] = []
         }
+
         for(let pair of this.table[index]){
-            if(pair[0]==key){
+            if(pair[0]===key){
                 pair[1] = value
                 return
             }
@@ -27,52 +26,41 @@ class HashTable {
         this.table[index].push([key,value])
     }
 
-    get(key){
+    remov(key){
         let index = this.hash(key)
         let bucket = this.table[index]
-        if(bucket){
-            for(let pair of bucket){
-                if(pair[0]==key){
-                    return pair[1]
-                }
+        for(let i=0;i<bucket.length;i++){
+            if(bucket[i][0]==key){
+                bucket.splice(i,1)
             }
         }
-        return undefined
+    }
+
+    get(key){
+        const index = this.hash(key);
+        const bucket = this.table[index];
+
+        for(let pair of bucket){
+            console.log(pair);
+            
+            if(pair[0]==key){
+                console.log("aaaaa",pair[1]);
+                return pair[1]
+            }
+        }
     }
 
     print(){
         this.table.forEach((x,i)=>{
-            console.log(x,i);
+            console.log(x,i)
         })
+        
     }
-
-}
-function countChecking(str){
-    const hashTable = new HashTable()
-    hashTable.print()
-    for(char of str){
-        let count = hashTable.get(char) || 0;
-        hashTable.set(char,count+1)
-        hashTable.print()
-    } 
-    let maxcount = 0
-    let maxChar =null
-
-    hashTable.table.forEach((bucket)=>{
-        if(bucket){
-            for(let [char,count] of bucket){
-                if(count>maxcount){
-                    maxcount = count
-                    maxChar = char
-                }
-            }
-        }
-    })
-    console.log(maxChar,maxcount);
-    
-    
 }
 const hashTable = new HashTable()
-    
-let str ="adithaaa"
-countChecking(str)
+hashTable.set("name","adith")
+hashTable.set("eman","adit")
+hashTable.remov("name")
+hashTable.get("eman")
+hashTable.print()
+console.log(hashTable)
