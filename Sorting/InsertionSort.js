@@ -1,15 +1,13 @@
-let arr = [5,1,3,5,3,8]
+let arr = [3,2,5,3,2,1]
 
 for(let i=1;i<arr.length;i++){
-    let key = arr[i]
-    let j = i-1    
+    let value = arr[i]
+    let hole = i
 
-    while(j>=0 && arr[j]>key){
-        arr[j+1] = arr[j]
-        j--
+    while(hole>0 && arr[hole-1]>value){
+        arr[hole] = arr[hole-1]
+        hole = hole-1
     }
-
-    arr[j+1] = key
-
+    arr[hole] = value
 }
-console.log(arr)
+console.log(arr);
