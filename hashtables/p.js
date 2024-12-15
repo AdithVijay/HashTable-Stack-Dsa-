@@ -39,15 +39,16 @@ class HashTable {
     get(key){
         const index = this.hash(key);
         const bucket = this.table[index];
-
-        for(let pair of bucket){
-            console.log(pair);
-            
-            if(pair[0]==key){
-                console.log("aaaaa",pair[1]);
-                return pair[1]
+        if(bucket){
+            for(let pair of bucket){
+                console.log(pair);
+                if(pair[0]==key){
+                    console.log("aaaaa",pair[1]);
+                    return pair[1]
+                }
             }
         }
+        return undefined
     }
 
     print(){
@@ -57,10 +58,14 @@ class HashTable {
         
     }
 }
-const hashTable = new HashTable()
-hashTable.set("name","adith")
-hashTable.set("eman","adit")
-hashTable.remov("name")
-hashTable.get("eman")
-hashTable.print()
-console.log(hashTable)
+
+function reverse(str){
+    const hashTable = new HashTable()
+
+    for(char of str){
+
+    }
+}
+
+let str = "adith"
+reverse(str)
