@@ -22,6 +22,15 @@ class Stack {
     sizes(){
         return this.items.length
     }
+    unique(){
+        let arr =[]
+        for(let char of this.items){
+            if(!arr.includes(char)){
+                arr.push(char)
+            }
+        }
+        return arr
+    }
 
 }
 
@@ -31,22 +40,14 @@ function reverseString(str){
     for(let char of str){
         stack.push(char)
     }
-    stack.print()
 
-    let largest = 0
+    console.log(stack.unique());
 
-    while(!stack.isempty()){
-        let element = stack.pop()
-        if(element>largest){
-            largest = element
-        }
-    }
-    console.log(largest);
     
-
+            
 }
 
-let str = [1,2,3,4,9,5,6,7]
+let str = [1,2,3,4,4,4]
 
 reverseString(str)
 
