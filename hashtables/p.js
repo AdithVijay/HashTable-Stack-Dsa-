@@ -1,87 +1,54 @@
-class HashTable {
-    constructor(size=10) {
-        this.table = Array(size)
+let arr = [3,2,4,2,1,5,6]
+
+function mergeSort(arr){
+    if(arr.length<2){
+        return
     }
 
-    hash(key){
-        let hash = 0
-        for(let char of key){
-            hash+= char.charCodeAt(0)
-        }
-        return hash%this.table.length
+    let mid = Math.floor(arr.length/2)
+    let left = []
+    let right =[]
+
+    for(i=0;i<mid;i++){
+        left.push(arr[i])
     }
 
-    set(key,value){
-        let index = this.hash(key)
-        if(!this.table[index]){
-            this.table[index] = []
-        }
-
-        for(let pair of this.table[index]){
-            if(pair[0]===key){
-                pair[1] = value
-                return
-            }
-        }
-        this.table[index].push([key,value])
+    for(i=mid;i<arr.length;i++){
+        right.push(arr[i])
     }
 
-    remov(key){
-        let index = this.hash(key)
-        let bucket = this.table[index]
-        for(let i=0;i<bucket.length;i++){
-            if(bucket[i][0]==key){
-                bucket.splice(i,1)
-            }
-        }
-    }
-
-    get(key){
-        const index = this.hash(key);
-        const bucket = this.table[index];
-        if(bucket){
-            for(let pair of bucket){
-                console.log(pair);
-                if(pair[0]==key){
-                    console.log("aaaaa",pair[1]);
-                    return pair[1]
-                }
-            }
-        }
-        return undefined
-    }
-
-    print(){
-        this.table.forEach((x,i)=>{
-            console.log(x,i)
-        })
-        
-    }
+    mergeSort(left)
+    mergeSort(right)
+    merge(arr,left,right)
 }
 
-function reverse(str){
-    const hashTable = new HashTable()
-    for(char of str){   
-        let count = hashTable.get(char) || 0
-        console.log(char);
-        hashTable.set(char,count+1)
-    }
-    hashTable.print()
+    function merge(arr,left,right){
+        let i=0;j=0;k=0
 
-    
-    let maxcount = 0
-    let maxchar = null
-    hashTable.table.forEach((x)=>{  
-        for([char,count] of x){
-            if(count>maxcount){
-                maxcount = count
-                maxchar = char
+        while(i<left.length && j<right.length){
+            if(left[i]<right[j]){
+                arr[k] = left[i]
+                i++
+            }else{
+                arr[k] = right[j]
+                j++
             }
+            k++
         }
-    })
-    console.log(maxchar,maxcount);
-    
-}
 
-let str = "adithbbbbbaa"
-reverse(str)
+        while(i<left.length){
+            arr[k] = left[i]
+            i++
+            k++
+        }
+        while(j<right.length){
+            arr[k] = right[j]
+            j++
+            k++
+        }
+    }   
+
+
+
+mergeSort(arr)
+console.log(arr)

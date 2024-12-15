@@ -17,6 +17,8 @@ function mergeSort(arr){
     for(let i=mid;i<arr.length;i++){
         right.push(arr[i])
     }
+    console.log(left);
+    
     mergeSort(left)
     mergeSort(right)
     merge(left,right,arr)
