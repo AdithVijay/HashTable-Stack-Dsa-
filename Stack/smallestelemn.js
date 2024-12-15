@@ -15,9 +15,6 @@ class Stack {
         this.size--
         return this.items.pop()
     }
-    isempty(){
-        return this.size==0
-    }
 
     sizes(){
         return this.items.length
@@ -35,15 +32,13 @@ function reverseString(str){
 
     let largest = 0
 
-    while(!stack.isempty()){
-        let element = stack.pop()
-        if(element>largest){
-            largest = element
+    for(i=0;i<str.length;i++){
+        if(stack.items[i]>largest){
+            largest = stack.items[i]
         }
     }
     console.log(largest);
     
-
 }
 
 let str = [1,2,3,4,9,5,6,7]
