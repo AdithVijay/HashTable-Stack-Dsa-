@@ -61,11 +61,27 @@ class HashTable {
 
 function reverse(str){
     const hashTable = new HashTable()
-
-    for(char of str){
-
+    for(char of str){   
+        let count = hashTable.get(char) || 0
+        console.log(char);
+        hashTable.set(char,count+1)
     }
+    hashTable.print()
+
+    
+    let maxcount = 0
+    let maxchar = null
+    hashTable.table.forEach((x)=>{  
+        for([char,count] of x){
+            if(count>maxcount){
+                maxcount = count
+                maxchar = char
+            }
+        }
+    })
+    console.log(maxchar,maxcount);
+    
 }
 
-let str = "adith"
+let str = "adithbbbbbaa"
 reverse(str)
