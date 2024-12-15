@@ -15,7 +15,6 @@ class Stack {
         return this.items.pop()
     }
 
-
     sizes(){
         return this.items.length
     }
@@ -39,6 +38,7 @@ function removemiddle(arr){
     while(newstack.length>0){
         stack.push(newstack.pop())
     }
+
 
     stack.print()
 }
