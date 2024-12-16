@@ -1,54 +1,52 @@
-let arr = [3,2,4,2,1,5,6]
-
-function mergeSort(arr){
-    if(arr.length<2){
-        return
+class HashTable {
+    constructor(size =10) {
+        this.table = Array(size)
     }
-
-    let mid = Math.floor(arr.length/2)
-    let left = []
-    let right =[]
-
-    for(i=0;i<mid;i++){
-        left.push(arr[i])
+    
+    hash(key){
+        let hash = 0 
+        for(let char of key){
+            hash+=char.charCodeAt(0)
+        }
+        return hash%this.table.length
     }
-
-    for(i=mid;i<arr.length;i++){
-        right.push(arr[i])
-    }
-
-    mergeSort(left)
-    mergeSort(right)
-    merge(arr,left,right)
-}
-
-    function merge(arr,left,right){
-        let i=0;j=0;k=0
-
-        while(i<left.length && j<right.length){
-            if(left[i]<right[j]){
-                arr[k] = left[i]
-                i++
-            }else{
-                arr[k] = right[j]
-                j++
+    
+    set(key,value){
+        let index = this.hash(key)
+        if(!this.table[index]){
+            this.table[index] = []
+        }
+        
+        for(let pair of this.table[index]){
+            if(pair[0]==key){
+                pair[1] = value
+                return
             }
-            k++
         }
-
-        while(i<left.length){
-            arr[k] = left[i]
-            i++
-            k++
+        this.table[index].push([key,value])
+    }
+    
+    get(){
+        let index = this.hash(key)
+        for(let pair of this.table[index]){
+            if(pair[0]==key){
+                return pair[1]
+            }
         }
-        while(j<right.length){
-            arr[k] = right[j]
-            j++
-            k++
-        }
-    }   
-
-
-
-mergeSort(arr)
-console.log(arr)
+    }
+    
+    remov(){
+        
+    }
+    
+    print() {
+        this.table.forEach((bucket, index) => {
+            if (bucket) {
+                console.log(`Index ${index}:`, bucket);
+            }
+        })
+    }
+}
+const hashTable = new HashTable()
+hashTable.set("name","aditj")
+hashTable.print()
