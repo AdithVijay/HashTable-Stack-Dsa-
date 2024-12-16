@@ -25,11 +25,17 @@ class Stack {
 }
 
 function sortStackWithAuxiliary(originalStack) {
-    const auxilastack = new Stack()
-
-    while(!originalStack.isempty()){
-        
-    }   
+    const auxiliaryStack = new Stack();
+    while(!originalStack.isEmpty()){
+        let temp = originalStack.pop()
+        while(!auxiliaryStack.isEmpty() && auxiliaryStack.peek()>temp){
+            originalStack.push(auxiliaryStack.pop())
+        }
+        auxiliaryStack.push(temp)
+    }
+    while(!auxiliaryStack.isEmpty()){
+        originalStack.push(auxiliaryStack.pop())
+    }
 }
 
 // Test
