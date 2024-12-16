@@ -12,12 +12,11 @@ class StackUsingQueue {
     }
     pop() {
     if (this.isempty()) {
-        console.log("umbikko"); // Queue is empty
+        console.log("umbikko"); 
         return; 
     }
     this.q.shift()
-}
-
+    }
 
     isempty(){
         return this.q.length === 0
@@ -40,4 +39,4 @@ stackqueue.push(1)
 stackqueue.push(2)
 stackqueue.push(3)
 
-stackqueue.print();
+stackqueue.print()
