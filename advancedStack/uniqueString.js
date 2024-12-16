@@ -1,4 +1,4 @@
-class Stack {
+class Queue {
     constructor() {
         this.items = []
     }
@@ -13,10 +13,10 @@ class Stack {
         if(this.isempty()){
             return
         }
-       return this.items.pop()
+       return this.items.shift()
     }
     peek(){
-        return this.items[this.items.length-1]
+        return this.items[0]
     }
     isempty(){
         return this.items.length==0
@@ -25,15 +25,22 @@ class Stack {
         console.log(this.items.join("=>"))
     }
     unique(){
-
+        let auxstack = []
+        for(let item of this.items){
+            if(!auxstack.includes(item)){
+                auxstack.push(item)
+            }
+        }
+        console.log(auxstack);
     }
 }
 
-const stack = new Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-stack.push(5)
-stack.push(6)
+const stack = new Queue()
+stack.push("c")
+stack.push("a")
+stack.push("b")
+stack.push("c")
+stack.push("d")
+stack.push("c")
 stack.print()
+stack.unique()
