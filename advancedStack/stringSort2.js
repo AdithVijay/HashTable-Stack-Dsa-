@@ -24,8 +24,9 @@ class Stack {
     }
 }
 
-function sortStackWithAuxiliary(originalStack) {
-    const auxiliaryStack = new Stack();
+function sort(originalStack){
+    const auxiliaryStack = new Stack()
+    
     while(!originalStack.isEmpty()){
         let temp = originalStack.pop()
         while(!auxiliaryStack.isEmpty() && auxiliaryStack.peek()>temp){
@@ -33,22 +34,16 @@ function sortStackWithAuxiliary(originalStack) {
         }
         auxiliaryStack.push(temp)
     }
+
     while(!auxiliaryStack.isEmpty()){
-        originalStack.push(auxiliaryStack.pop())
+        
     }
 }
 
-// Test
-const stack = new Stack();
-stack.push(3);
-stack.push(1);
-stack.push(4);
-stack.push(2);
-
-console.log("Original Stack:");
-stack.print();
-
-sortStackWithAuxiliary(stack);
-
-console.log("Sorted Stack:");
+const stack = new Stack()
+stack.push("banana")
+stack.push("apple")
+stack.push("cherry")
+stack.push("date")
+sort(stack)
 stack.print()
