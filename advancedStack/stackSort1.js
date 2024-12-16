@@ -26,7 +26,10 @@ class Stack {
 
 function sortStackWithAuxiliary(originalStack) {
     const auxilastack = new Stack()
-    
+
+    while(!originalStack.isempty()){
+        
+    }   
 }
 
 // Test
