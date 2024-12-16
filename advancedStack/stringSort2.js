@@ -12,7 +12,7 @@ class Stack {
     }
 
     peek() {
-        return this.items[this.items.length - 1];
+        return this.items[this.items.length - 1]
     }
 
     isEmpty() {
@@ -29,14 +29,14 @@ function sort(originalStack){
     
     while(!originalStack.isEmpty()){
         let temp = originalStack.pop()
-        while(!auxiliaryStack.isEmpty() && auxiliaryStack.peek()>temp){
+        while(!auxiliaryStack.isEmpty() && auxiliaryStack.peek()<temp){
             originalStack.push(auxiliaryStack.pop())
         }
         auxiliaryStack.push(temp)
     }
 
     while(!auxiliaryStack.isEmpty()){
-        
+        originalStack.push(auxiliaryStack.pop())
     }
 }
 
@@ -45,5 +45,6 @@ stack.push("banana")
 stack.push("apple")
 stack.push("cherry")
 stack.push("date")
+stack.print()
 sort(stack)
 stack.print()
