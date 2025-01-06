@@ -28,3 +28,4 @@ const stack = new QueueUsingStack()
 stack.enqueue(10)
 stack.dequeue()
 console.log(stack);
+console.log("afa");
